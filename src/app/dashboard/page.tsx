@@ -373,7 +373,7 @@ export default function Dashboard() {
         <button className="menu-btn" onClick={() => setShowSidebar(!showSidebar)}>
           <i className="fas fa-bars"></i>
         </button>
-        <div className="mobile-logo">
+        <div className="mobile-logo" onClick={() => setCurrentSubject(null)} style={{ cursor: 'pointer' }}>
           <Image src="/logo.png" alt="4Achievers Junior" width={150} height={40} style={{ objectFit: 'contain' }} />
         </div>
         <UserButton />
@@ -387,7 +387,7 @@ export default function Dashboard() {
       {/* Sidebar */}
       <aside className={`sidebar ${showSidebar ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <div className="logo">
+          <div className="logo" onClick={() => { setCurrentSubject(null); setShowSidebar(false); }} style={{ cursor: 'pointer' }}>
             <Image src="/logo.png" alt="4Achievers Junior" width={180} height={50} style={{ objectFit: 'contain' }} />
           </div>
           <button className="close-sidebar-btn" onClick={() => setShowSidebar(false)}>
@@ -474,7 +474,7 @@ export default function Dashboard() {
                 <button className="icon-btn" onClick={clearChat} title="Clear Chat">
                   <i className="fas fa-trash"></i>
                 </button>
-                <button className="icon-btn delete-btn" onClick={deleteSubject} title="Delete Subject">
+                <button className="icon-btn close-chat-btn" onClick={() => setCurrentSubject(null)} title="Close Chat">
                   <i className="fas fa-times"></i>
                 </button>
               </div>
